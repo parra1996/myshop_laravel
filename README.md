@@ -172,6 +172,10 @@ Un usuario autenticado, desde la vista específica de producto en `/products/{id
 
 Desde la vista de `/cart`, los usuarios pueden ver la lista de productos de su carrito, modificar la cantidad de los mismos, eliminarlos del carrito, o proceder al pago. Se muestra el precio resultante, así como los precios previos a las rebajas aplicadas por las ofertas.
 
+### Contacto
+
+Desde la vista de /contact, los usuarios pueden buscar ver las distintas formas de comunicarse con nosotros a traves de distintas plataformas, ya sea por correo, por llamada telefonica y muy pronto implementaremos un un chat en vivo. Ademas podran seguirnos en nuestras redes sociales ofreciendoles enlaces para nuestras cuentas de X, Instagram y Meta.
+
 ## Requisitos previos
 
 Para utilizar esta aplicación web, antes de seguir las instrucciones de instalación se necesitan los siguientes elementos:
