@@ -25,7 +25,7 @@ gap: 2rem;
            id="search" 
            placeholder="Buscar producto" 
            class="border-2 border-gray-300 rounded-md p-2 w-full"
-           value="{{ request('search') }}">  <!-- Mantener el valor después de buscar -->
+           value="{{ request('search') }}">  
     <button type="submit" class="bg-blue-500 text-white rounded-md p-2">
         Buscar
     </button>
