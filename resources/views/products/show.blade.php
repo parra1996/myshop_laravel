@@ -3,7 +3,6 @@
 @section('content')
     <div class="container mx-auto px-6 py-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Imagen del Producto -->
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <div class="h-96 bg-gray-200 flex items-center justify-center">
                     @if($product->image)

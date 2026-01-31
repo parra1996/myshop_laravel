@@ -18,6 +18,24 @@ gap: 2rem;
 </div>
 @else
 <h1 class="text-3xl font-bold text-gray-900 mb-4">Todos los Productos</h1>
+<div class="flex  flex-row gap-2 mb-4">
+<form method="GET" action="{{ route('products.index') }}" class="flex flex-row gap-2 mb-4">
+    <input type="text" 
+           name="search" 
+           id="search" 
+           placeholder="Buscar producto" 
+           class="border-2 border-gray-300 rounded-md p-2 w-full"
+           value="{{ request('search') }}">  <!-- Mantener el valor después de buscar -->
+    <button type="submit" class="bg-blue-500 text-white rounded-md p-2">
+        Buscar
+    </button>
+    @if(request('search'))
+        <a href="{{ route('products.index') }}" class="bg-gray-500 text-white rounded-md p-2">
+            Limpiar
+        </a>
+    @endif
+</form>
+</div>
 @endif
 <div class="product-grid">
 @forelse($products as $product)

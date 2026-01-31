@@ -15,9 +15,16 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $products = Product::with(['category', 'offer'])->get();
+
+        if ($request->filled('search')) {
+            $searchTerm = strtolower($request->search);
+            $products = $products->filter(function($product) use ($searchTerm) {
+                return str_contains(strtolower($product->name), $searchTerm);
+            });
+        }
 
         return view('products.index', ['products' => $products]);
     }
