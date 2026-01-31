@@ -7,6 +7,10 @@
        class="text-gray-700 hover:text-primary-600 transition {{ request()->routeIs('products.*') ? 'text-primary-600 font-semibold' : '' }}">
         Productos
     </a>
+    <a href="{{ route('compare') }}" 
+       class="text-gray-700 hover:text-primary-600 transition {{ request()->routeIs('compare') ? 'text-primary-600 font-semibold' : '' }}">
+        Comparar Productos
+    </a>
     <a href="{{ route('categories.index') }}" 
        class="text-gray-700 hover:text-primary-600 transition {{ request()->routeIs('categories.*') ? 'text-primary-600 font-semibold' : '' }}">
         Categorías

@@ -18,10 +18,11 @@
                 $totalQuantity = array_sum(array_column($cart, 'quantity'));
             @endphp
             <div class="flex items-center space-x-4">
-            <a href="{{ route('cart.index') }}" 
-                class="text-gray-700 hover:text-primary-600 transition">
+                
+                <a href="{{ route('cart.index') }}" 
+                    class="text-gray-700 hover:text-primary-600 transition">
                     🛒 Carrito ( {{ $totalQuantity }} )
-            </a>
+                </a>
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CompareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::resource('categories', CategoryController::class)->only(['index', 'show']
 // Rutas de productos (solo lectura)
 Route::get('/products-on-sale', [ProductController::class, 'onSale'])->name('products.on-sale');
 Route::resource('products', ProductController::class)->only(['index', 'show']);
+
+// Ruta del comparador
+Route::get('/compare', [CompareController::class, 'index'])->name('compare');
 
 // Rutas de ofertas (solo lectura)
 Route::resource('offers', OfferController::class)->only(['index', 'show']);
