@@ -138,9 +138,20 @@ Por otro lado, desde cada una de estas vistas principales podemos acceder a los 
 
 Finalmente, desde el "Dashboard", como usuario autenticado, podemos acceder a la gestión de productos, situada en `/admin/products` o a la sección de "Lista de Deseados", donde podemos ver nuestros productos marcados como favoritos.
 
+## Vistas Públicas
+
+### Página de Inicio
+
+En la vista principal `/` (welcome), los usuarios pueden ver una página de bienvenida con información sobre la tienda, categorías destacadas y enlaces rápidos a productos y ofertas especiales.
+
 ### Login y Registro
 
-Los usuarios pueden usar la mayoría de la aplicación web sin iniciar sesión, a excepción de la gestión de productos y el acceso a la "Lista de Deseados". Para ello, existen las vistas de Login y Registro, que gestionan la autentificación mediante Laravel Breeze.
+Los usuarios pueden usar la mayoría de la aplicación web sin iniciar sesión, a excepción de la gestión de productos y el acceso a la "Lista de Deseados". Para autenticarse, existen las siguientes vistas gestionadas mediante Laravel Breeze:
+
+- **Login** (`/login`): Permite a los usuarios iniciar sesión con su email y contraseña.
+- **Registro** (`/register`): Permite crear una nueva cuenta de usuario.
+- **Recuperar Contraseña** (`/forgot-password`): Permite solicitar un enlace para restablecer la contraseña olvidada.
+- **Restablecer Contraseña** (`/reset-password/{token}`): Permite establecer una nueva contraseña usando el token recibido por email.
 
 ### Ver Productos
 
@@ -160,21 +171,51 @@ En la vista `/categories` se pueden ver todas las categorías de productos dispo
 
 En la vista de ofertas en `/offers` tenemos la lista de ofertas, junto a sus respectivos descuentos. Los usuarios pueden ver una mayor descripción y la lista de productos afectados por dichas ofertas al pulsar en el botón de "Ver Productos" de cada una e ir a `/offers/{id}`, donde se muestra todo con mayor detalle.
 
-### Gestionar Productos
-
-Como usuario autenticado, es posible acceder a `/admin/products` para poder crear, editar o borrar cualquier producto, a fin de gestionar la tienda online. La aplicación web tiene capacidad para, además de gestionar los productos en sí en la base de datos, subir ficheros de imágenes de los mismos, permitiendo una mayor visibilidad y funcionalidad. Los productos pueden incluir información como nombre, descripción, precio, categoría, oferta asociada, plataforma, marca, tipo y stock.
-
-### Lista de Deseados
-
-Un usuario autenticado, desde la vista específica de producto en `/products/{id}`, puede añadir dicho elemento a su lista de deseados. Más tarde, desde dicha lista en `/admin/wishlist`, podemos añadir cualquiera de los productos favoritos a nuestro carrito para poder comprarlos.
-
 ### Carrito
 
-Desde la vista de `/cart`, los usuarios pueden ver la lista de productos de su carrito, modificar la cantidad de los mismos, eliminarlos del carrito, o proceder al pago. Se muestra el precio resultante, así como los precios previos a las rebajas aplicadas por las ofertas.
+Desde la vista de `/cart`, los usuarios pueden ver la lista de productos de su carrito, modificar la cantidad de los mismos, eliminarlos del carrito, o proceder al pago mediante el botón de checkout. Se muestra el precio resultante, así como los precios previos a las rebajas aplicadas por las ofertas.
 
 ### Contacto
 
-Desde la vista de /contact, los usuarios pueden buscar ver las distintas formas de comunicarse con nosotros a traves de distintas plataformas, ya sea por correo, por llamada telefonica y muy pronto implementaremos un un chat en vivo. Ademas podran seguirnos en nuestras redes sociales ofreciendoles enlaces para nuestras cuentas de X, Instagram y Meta.
+Desde la vista de `/contact`, los usuarios pueden ver las distintas formas de comunicarse con nosotros a través de distintas plataformas, ya sea por correo, por llamada telefónica y muy pronto implementaremos un chat en vivo. Además podrán seguirnos en nuestras redes sociales ofreciéndoles enlaces para nuestras cuentas de X, Instagram y Meta.
+
+## Vistas de Usuario Autenticado
+
+### Dashboard
+
+En la vista `/dashboard`, los usuarios autenticados pueden acceder a un panel de control que les permite navegar a las diferentes secciones de gestión disponibles, como la gestión de productos y la lista de deseados.
+
+### Perfil de Usuario
+
+Los usuarios autenticados pueden gestionar su perfil desde la vista `/profile`:
+
+- **Editar Perfil** (`/profile`): Permite actualizar la información del perfil del usuario, incluyendo nombre y email.
+- **Cambiar Contraseña**: Permite actualizar la contraseña de la cuenta.
+- **Eliminar Cuenta**: Permite eliminar permanentemente la cuenta de usuario.
+
+### Verificar Email
+
+Los usuarios nuevos deben verificar su dirección de email. La vista `/verify-email` permite solicitar un nuevo enlace de verificación si no se recibió el correo inicial.
+
+### Confirmar Contraseña
+
+Algunas acciones sensibles requieren confirmar la contraseña. La vista `/confirm-password` permite verificar la identidad del usuario antes de realizar estas acciones.
+
+## Vistas de Administración
+
+### Gestionar Productos
+
+Como usuario autenticado, es posible acceder a `/admin/products` para poder gestionar los productos de la tienda online:
+
+- **Lista de Productos** (`/admin/products`): Muestra todos los productos disponibles con opciones para crear, editar o eliminar.
+- **Crear Producto** (`/admin/products/create`): Permite añadir un nuevo producto a la tienda, incluyendo la subida de imágenes.
+- **Editar Producto** (`/admin/products/{id}/edit`): Permite modificar la información de un producto existente, incluyendo la actualización de su imagen.
+
+La aplicación web tiene capacidad para, además de gestionar los productos en sí en la base de datos, subir ficheros de imágenes de los mismos, permitiendo una mayor visibilidad y funcionalidad. Los productos pueden incluir información como nombre, descripción, precio, categoría, oferta asociada, plataforma, marca, tipo y stock.
+
+### Lista de Deseados
+
+Un usuario autenticado, desde la vista específica de producto en `/products/{id}`, puede añadir dicho elemento a su lista de deseados. Más tarde, desde dicha lista en `/admin/wishlist`, podemos ver todos nuestros productos favoritos y añadir cualquiera de ellos a nuestro carrito para poder comprarlos.
 
 ## Requisitos previos
 
