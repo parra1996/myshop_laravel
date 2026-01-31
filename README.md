@@ -1,59 +1,196 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Documentación Proyecto PHP 2º Ev.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Nombre del proyecto:** Parrita's VideoStore
 
-## About Laravel
+## Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Es una aplicación Ecommerce basándose en una tienda de videojuegos y accesorios, que permite su gestión como administrador y su uso como usuario, autenticado o no, con la diferencia de que un usuario autenticado tiene una "Lista de Deseados", que le permite marcar como favoritos algunos productos para luego añadirlos a su carrito. Además, la aplicación incluye un comparador de productos que permite a los usuarios comparar dos productos lado a lado para facilitar la toma de decisiones de compra.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologías utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Tecnologías principales
+- PHP 8.2+
+- Laravel
+- MySQL
+- Bootstrap
+- Composer
+- Docker
 
-## Learning Laravel
+### Dependencias principales
+- Tailwind CSS
+- Vite
+- AlpineJS
+- Breeze
+- Telescope
+- Pint
+- PHPStan
+- PHP_Codesniffer
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Mejoras implementadas
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+En este proyecto, se han implementado 2 mejoras respecto a su estructura inicial, con la intención de mejorar su funcionalidad.
 
-## Laravel Sponsors
+- **Buscador de Productos**: Se ha implementado un sistema de búsqueda en la vista de productos (/products) que permite a los usuarios filtrar los productos por nombre. El buscador realiza una búsqueda que filtra los productos cuyo nombre contiene el término de búsqueda introducido, facilitando la localización rápida de productos específicos en el catálogo.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Sistema de Comparación de Productos**: Se ha implementado un comparador de productos que permite a los usuarios seleccionar dos productos y compararlos lado a lado, mostrando información detallada como precio, marca, plataforma, tipo, stock y categoría. Esto facilita la toma de decisiones de compra al permitir una comparación visual y directa entre productos similares.
 
-### Premium Partners
+## Estructura del proyecto
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Tenemos una estructura principal como la que sigue, especificando solo las subcarpetas y subficheros más importantes:
 
-## Contributing
+- **root:**
+  - **app**
+    - **Http**
+      - **Controllers** (ProductController, CategoryController, OfferController, CartController, WishlistController, CompareController, etc.)
+      - **Middleware** (LogUserActivity)
+      - **Requests**
+    - **Models** (Product, Category, Offer, User)
+    - **Providers**
+    - **Traits**
+    - **View**
+  - **bootstrap**
+    - Ficheros: app.php, providers.php
+  - **config**
+    - Ficheros: app.php, auth.php, ...
+  - **database**
+    - **data**
+    - **factories**
+    - **migrations**
+    - **seeders**
+    - Ficheros: .gitignore, database.sqlite
+  - **node_modules**
+  - **public**
+  - **resources**
+    - **css**
+    - **js**
+    - **views** (products, categories, offers, admin, layouts, partials, components)
+  - **routes**
+    - Ficheros: auth.php, console.php, web.php
+  - **storage**
+  - **tests**
+  - **vendor**
+  - Ficheros: .editorconfig, .env, .env.example, .gitignore, .phpcs.xml, artisan, compose.yaml, composer.json, composer.lock, package-lock.json, package.json, phpstan.neon, phpunit.xml, pint.json, postcss.config.js, tailwind.config.js, vite.config.js
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Instrucciones de instalación
 
-## Code of Conduct
+1. Primero, ha de clonarse el proyecto de github (o desde el repositorio local).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. Después, instalamos sail, copiamos el .env de ejemplo y añadimos sail a los alias de linux:
+```bash
+php artisan sail:install --with=mysql,redis
+cp .env.example .env
+php artisan key:generate
 
-## Security Vulnerabilities
+echo "alias sail='./vendor/bin/sail'" >> ~/.bashrc
+source ~/.bashrc
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. En el .env, rellenamos estos campos:
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=myshop
+DB_USERNAME=sail
+DB_PASSWORD=mipassword
+DB_EXTRA_OPTIONS=
+```
 
-## License
+4. Levantamos los contenedores mediante un comando sail:
+```bash
+sail up -d --build
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. Accedemos al contenedor de mysql para darle permisos a la aplicación (con usuario sail) para gestionar nuestra base de datos, que llamaremos "myshop":
+```bash
+# Da el nombre de contenedor
+docker ps --format "table {{.Names}}\t{{.Image}}" | grep -i mysql
+# Accedemos a mysql
+docker exec -it nombre-contenedor mysql -u root -pmipassword
+```
+
+6. Dentro de MySQL, ejecutamos:
+```sql
+CREATE DATABASE IF NOT EXISTS myshop;
+GRANT ALL PRIVILEGES ON myshop.* TO 'sail'@'%';
+FLUSH PRIVILEGES;
+# Después, salimos de mysql
+exit
+```
+
+7. Poblamos la base de datos con datos iniciales:
+```bash
+sail artisan migrate:refresh --seed
+```
+
+8. Instalamos dependencias:
+```bash
+sail npm install
+```
+
+## Uso Básico
+
+### Navegación
+
+Por un lado, podemos acceder a las vistas principales mediante el menú de navegación en la parte superior, a las vistas "Inicio", "Productos", "Categorías", "Ofertas", "Contacto", "Comparar" y "Dashboard" (o "Login" y "Registro" si se trata de un usuario no autenticado).
+
+Por otro lado, desde cada una de estas vistas principales podemos acceder a los elementos específicos de cada sección, como un producto, categoría, u oferta concretos, o a la sección de artículos actualmente en oferta.
+
+Finalmente, desde el "Dashboard", como usuario autenticado, podemos acceder a la gestión de productos, situada en `/admin/products` o a la sección de "Lista de Deseados", donde podemos ver nuestros productos marcados como favoritos.
+
+### Login y Registro
+
+Los usuarios pueden usar la mayoría de la aplicación web sin iniciar sesión, a excepción de la gestión de productos y el acceso a la "Lista de Deseados". Para ello, existen las vistas de Login y Registro, que gestionan la autentificación mediante Laravel Breeze.
+
+### Ver Productos
+
+Todos los usuarios pueden ver los productos en `/products` y `/products-on-sale` (mostrando solo aquellos en oferta), mostrando su precio actual y anterior a una posible rebaja, cualquier oferta que tengan, y su nombre, imagen y descripción. Los productos incluyen información adicional como plataforma, marca (Sony, Microsoft, Nintendo, PC), tipo (juego o accesorio) y stock disponible.
+
+Además, desde esa vista pueden pulsar en el botón "Ver Detalles" de cualquier producto e ir a la vista de `/products/{id}`, donde se pueden apreciar más detalles, como el stock, y una imagen más amplia del producto.
+
+### Comparar Productos
+
+En la vista `/compare`, los usuarios pueden seleccionar dos productos de la lista desplegable y compararlos lado a lado. El comparador muestra información detallada de ambos productos incluyendo precio (con descuentos aplicados si los hay), marca, plataforma, tipo, stock y categoría, facilitando la toma de decisiones de compra.
+
+### Categorías
+
+En la vista `/categories` se pueden ver todas las categorías de productos disponibles, y un botón de "Ver Productos" para acceder a los productos de cada categoría en `/categories/{id}`. Cada una de las categorías posee una pequeña descripción para orientar a los usuarios.
+
+### Ofertas
+
+En la vista de ofertas en `/offers` tenemos la lista de ofertas, junto a sus respectivos descuentos. Los usuarios pueden ver una mayor descripción y la lista de productos afectados por dichas ofertas al pulsar en el botón de "Ver Productos" de cada una e ir a `/offers/{id}`, donde se muestra todo con mayor detalle.
+
+### Gestionar Productos
+
+Como usuario autenticado, es posible acceder a `/admin/products` para poder crear, editar o borrar cualquier producto, a fin de gestionar la tienda online. La aplicación web tiene capacidad para, además de gestionar los productos en sí en la base de datos, subir ficheros de imágenes de los mismos, permitiendo una mayor visibilidad y funcionalidad. Los productos pueden incluir información como nombre, descripción, precio, categoría, oferta asociada, plataforma, marca, tipo y stock.
+
+### Lista de Deseados
+
+Un usuario autenticado, desde la vista específica de producto en `/products/{id}`, puede añadir dicho elemento a su lista de deseados. Más tarde, desde dicha lista en `/admin/wishlist`, podemos añadir cualquiera de los productos favoritos a nuestro carrito para poder comprarlos.
+
+### Carrito
+
+Desde la vista de `/cart`, los usuarios pueden ver la lista de productos de su carrito, modificar la cantidad de los mismos, eliminarlos del carrito, o proceder al pago. Se muestra el precio resultante, así como los precios previos a las rebajas aplicadas por las ofertas.
+
+## Requisitos previos
+
+Para utilizar esta aplicación web, antes de seguir las instrucciones de instalación se necesitan los siguientes elementos:
+
+- Docker
+- Composer
+- PHP 8.2 o superior
+- Linux o WSL conectado a Docker Desktop y un editor de código (en Windows)
+- Los puertos donde han de ejecutarse los tres contenedores del compose han de estar libres:
+  - Aplicación, en puerto 80
+  - MySQL, en el puerto 3307 (o el configurado en `FORWARD_DB_PORT`)
+  - Redis, en el puerto 6379 (o el configurado en `FORWARD_REDIS_PORT`)
+
+## Autor
+
+**Juan Pablo Parra Labarca**
+
+GitHub: https://github.com/parra1996/myshop_laravel
+
+## Licencia
+
+Uso educativo.
