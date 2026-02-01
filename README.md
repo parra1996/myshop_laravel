@@ -1,30 +1,37 @@
 # Documentación Proyecto PHP 2º Ev.
 
-**Nombre del proyecto:** Parrita's VideoStore
+**Parrita's VideoStore** 
 
 ## Descripción
 
-Es una aplicación Ecommerce basándose en una tienda de videojuegos y accesorios, que permite su gestión como administrador y su uso como usuario, autenticado o no, con la diferencia de que un usuario autenticado tiene una "Lista de Deseados", que le permite marcar como favoritos algunos productos para luego añadirlos a su carrito. Además, la aplicación incluye un comparador de productos que permite a los usuarios comparar dos productos lado a lado para facilitar la toma de decisiones de compra.
+Proyecto Ecommerce desarrollado en Laravel para la venta de videojuegos y accesorios, con sistema de usuarios, carrito, lista de deseados y panel de administración.
+
+Permite a los usuarios navegar por el catálogo, comparar productos, añadir artículos al carrito y guardar favoritos. Los administradores pueden gestionar productos desde un panel.
 
 ## Tecnologías utilizadas
 
-### Tecnologías principales
-- PHP 8.2+
+- PHP 8.1
 - Laravel
 - MySQL
 - Bootstrap
 - Composer
 - Docker
-
-### Dependencias principales
 - Tailwind CSS
 - Vite
-- AlpineJS
-- Breeze
-- Telescope
-- Pint
-- PHPStan
-- PHP_Codesniffer
+
+## Funcionalidades 
+
+#### Usuarios
+
+- Registro e inicio de sesión
+- Ver productos, ofertas y categorias
+- Carrito de compra
+- Lista de deseados
+- Comparador de productos
+
+#### Administradores
+
+- CRUD de productos.
 
 ## Mejoras implementadas
 
@@ -40,32 +47,13 @@ Tenemos una estructura principal como la que sigue, especificando solo las subca
 
 - **root:**
   - **app**
-    - **Http**
-      - **Controllers** (ProductController, CategoryController, OfferController, CartController, WishlistController, CompareController, etc.)
-      - **Middleware** (LogUserActivity)
-      - **Requests**
-    - **Models** (Product, Category, Offer, User)
-    - **Providers**
-    - **Traits**
-    - **View**
   - **bootstrap**
-    - Ficheros: app.php, providers.php
   - **config**
-    - Ficheros: app.php, auth.php, ...
   - **database**
-    - **data**
-    - **factories**
-    - **migrations**
-    - **seeders**
-    - Ficheros: .gitignore, database.sqlite
   - **node_modules**
   - **public**
   - **resources**
-    - **css**
-    - **js**
-    - **views** (products, categories, offers, admin, layouts, partials, components)
   - **routes**
-    - Ficheros: auth.php, console.php, web.php
   - **storage**
   - **tests**
   - **vendor**
@@ -73,7 +61,7 @@ Tenemos una estructura principal como la que sigue, especificando solo las subca
 
 ## Instrucciones de instalación
 
-1. Primero, ha de clonarse el proyecto de github (o desde el repositorio local).
+1. Primero, ha de clonarse el proyecto de github (https://github.com/parra1996/myshop_laravel).
 
 2. Después, instalamos sail, copiamos el .env de ejemplo y añadimos sail a los alias de linux:
 ```bash
@@ -92,8 +80,7 @@ DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=myshop
 DB_USERNAME=sail
-DB_PASSWORD=mipassword
-DB_EXTRA_OPTIONS=
+DB_PASSWORD=password
 ```
 
 4. Levantamos los contenedores mediante un comando sail:
@@ -106,7 +93,7 @@ sail up -d --build
 # Da el nombre de contenedor
 docker ps --format "table {{.Names}}\t{{.Image}}" | grep -i mysql
 # Accedemos a mysql
-docker exec -it nombre-contenedor mysql -u root -pmipassword
+docker exec -it nombre-contenedor mysql -u root -password
 ```
 
 6. Dentro de MySQL, ejecutamos:
@@ -132,9 +119,9 @@ sail npm install
 
 ### Navegación
 
-Por un lado, podemos acceder a las vistas principales mediante el menú de navegación en la parte superior, a las vistas "Inicio", "Productos", "Categorías", "Ofertas", "Contacto", "Comparar" y "Dashboard" (o "Login" y "Registro" si se trata de un usuario no autenticado).
+Por un lado, podemos acceder a las vistas principales mediante el menú de navegación en la parte superior, a las vistas "Inicio", "Productos", "Categorías", "Ofertas", "Contacto", "Comparar Productos" y "Dashboard" (o "Login" y "Registro" si se trata de un usuario no autenticado).
 
-Por otro lado, desde cada una de estas vistas principales podemos acceder a los elementos específicos de cada sección, como un producto, categoría, u oferta concretos, o a la sección de artículos actualmente en oferta.
+Por otro lado, desde cada una de estas vistas principales podemos acceder a los elementos específicos de cada sección, como un producto, categoría, u ofertas, o a la sección de artículos actualmente en oferta.
 
 Finalmente, desde el "Dashboard", como usuario autenticado, podemos acceder a la gestión de productos, situada en `/admin/products` o a la sección de "Lista de Deseados", donde podemos ver nuestros productos marcados como favoritos.
 
@@ -217,25 +204,9 @@ La aplicación web tiene capacidad para, además de gestionar los productos en s
 
 Un usuario autenticado, desde la vista específica de producto en `/products/{id}`, puede añadir dicho elemento a su lista de deseados. Más tarde, desde dicha lista en `/admin/wishlist`, podemos ver todos nuestros productos favoritos y añadir cualquiera de ellos a nuestro carrito para poder comprarlos.
 
-## Requisitos previos
-
-Para utilizar esta aplicación web, antes de seguir las instrucciones de instalación se necesitan los siguientes elementos:
-
-- Docker
-- Composer
-- PHP 8.2 o superior
-- Linux o WSL conectado a Docker Desktop y un editor de código (en Windows)
-- Los puertos donde han de ejecutarse los tres contenedores del compose han de estar libres:
-  - Aplicación, en puerto 80
-  - MySQL, en el puerto 3307 (o el configurado en `FORWARD_DB_PORT`)
-  - Redis, en el puerto 6379 (o el configurado en `FORWARD_REDIS_PORT`)
-
 ## Autor
 
 **Juan Pablo Parra Labarca**
 
 GitHub: https://github.com/parra1996/myshop_laravel
 
-## Licencia
-
-Uso educativo.
