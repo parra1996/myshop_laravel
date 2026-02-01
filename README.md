@@ -59,6 +59,15 @@ Tenemos una estructura principal como la que sigue, especificando solo las subca
   - **vendor**
   - Ficheros: .editorconfig, .env, .env.example, .gitignore, .phpcs.xml, artisan, compose.yaml, composer.json, composer.lock, package-lock.json, package.json, phpstan.neon, phpunit.xml, pint.json, postcss.config.js, tailwind.config.js, vite.config.js
 
+## Requisitos previos
+
+Para poder levantar el proyecto necesitas tener instalado:
+
+- Docker
+-	Composer
+-	PHP
+
+
 ## Instrucciones de instalación
 
 1. Primero, ha de clonarse el proyecto de github (https://github.com/parra1996/myshop_laravel).
