@@ -3,7 +3,6 @@
 @section('content')
 <div class="container mx-auto px-6 py-8">
     <h1 class="text-3xl font-bold text-gray-900 mb-6">Comparar Productos</h1>
-
     <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
         <h2 class="text-xl font-bold mb-4">Selecciona 2 productos para comparar</h2>
         <form method="GET" action="{{ route('compare') }}" class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -11,7 +10,7 @@
                 <label class="block text-sm font-medium text-gray-700 mb-2">Producto 1</label>
                 <select name="product1" class="w-full border border-gray-300 rounded-lg px-4 py-2">
                     <option value="">Selecciona un producto</option>
-                    @foreach($products1 as $product)
+                    @foreach($products as $product)
                         <option value="{{ $product->id }}" {{ $product1 && $product1->id == $product->id ? 'selected' : '' }}>
                             {{ $product->name }} - €{{ number_format($product->final_price ?? $product->price, 2) }}
                         </option>
@@ -22,7 +21,7 @@
                 <label class="block text-sm font-medium text-gray-700 mb-2">Producto 2</label>
                 <select name="product2" class="w-full border border-gray-300 rounded-lg px-4 py-2">
                     <option value="">Selecciona un producto</option>
-                    @foreach($products2 as $product)
+                    @foreach($products as $product)
                         <option value="{{ $product->id }}" {{ $product2 && $product2->id == $product->id ? 'selected' : '' }}>
                             {{ $product->name }} - €{{ number_format($product->final_price ?? $product->price, 2) }}
                         </option>

@@ -3,7 +3,7 @@
 @push('styles')
 <style>
 .hero-gradient {
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+background: linear-gradient(135deg, #00d9ff 0%, #9d4edd 50%, #ff00ff 100%);
 }
 </style>
 @endpush
@@ -28,13 +28,13 @@ Ver Productos
 class="border-2 border-white text-white font-bold py-4 px-8
 rounded-full hover:bg-white hover:text-primary-600 transition duration-300 ease-
 in-out">
-🏷 Ofertas Especiales
+🎮 🏷 Ofertas Especiales
 </a>
 </div>
 </div>
 </section>
 <!-- Categorías Destacadas -->
-<section class="py-16">
+<section class="py-16 bg-gray-100" >
     <div class="container mx-auto px-6">
     <h3 class="text-3xl font-bold mb-12 text-center text-gray-900">
     Nuestras Categorías
@@ -52,7 +52,7 @@ in-out">
     </div>
     </section>
     <!-- Productos Destacados -->
-    <section class="py-16 bg-gray-100">
+    <section class="py-16">
     <div class="container mx-auto px-6">
     <h3 class="text-3xl font-bold mb-12 text-center text-gray-900">
     Productos Destacados

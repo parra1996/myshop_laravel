@@ -128,7 +128,7 @@ sail npm install
 
 ### Navegación
 
-Por un lado, podemos acceder a las vistas principales mediante el menú de navegación en la parte superior, a las vistas "Inicio", "Productos", "Categorías", "Ofertas", "Contacto", "Comparar Productos" y "Dashboard" (o "Login" y "Registro" si se trata de un usuario no autenticado).
+Por un lado, podemos acceder a las vistas principales mediante el menú de navegación en la parte superior, a las vistas "Inicio", "Productos", "Categorías", "Ofertas", "Contacto", "Comparador" y "Dashboard" (o "Login" y "Registro" si se trata de un usuario no autenticado).
 
 Por otro lado, desde cada una de estas vistas principales podemos acceder a los elementos específicos de cada sección, como un producto, categoría, u ofertas, o a la sección de artículos actualmente en oferta.
 

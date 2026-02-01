@@ -28,19 +28,10 @@ class CompareController extends Controller
             $product2 = Product::with(['category', 'offer'])->find($product2Id);
         }
 
-        // Obtener productos para el select 1 (excluyendo el producto 2 si está seleccionado)
-        $products1 = Product::with(['category', 'offer'])
-            ->when($product2Id, fn($q) => $q->where('id', '!=', $product2Id))
+        $products = Product::with(['category', 'offer'])
             ->orderBy('name')
             ->get();
 
-        // Obtener productos para el select 2 (excluyendo el producto 1 si está seleccionado)
-        $products2 = Product::with(['category', 'offer'])
-            ->when($product1Id, fn($q) => $q->where('id', '!=', $product1Id))
-            ->orderBy('name')
-            ->get();
-
-        return view('products.compare', compact('product1', 'product2', 'products1', 'products2'));
+        return view('products.compare', compact('product1', 'product2', 'products'));
     }
 }
-

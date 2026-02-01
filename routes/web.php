@@ -35,7 +35,6 @@ Route::resource('categories', CategoryController::class)->only(['index', 'show']
 Route::get('/products-on-sale', [ProductController::class, 'onSale'])->name('products.on-sale');
 Route::resource('products', ProductController::class)->only(['index', 'show']);
 
-// Ruta del comparador
 Route::get('/compare', [CompareController::class, 'index'])->name('compare');
 
 // Rutas de ofertas (solo lectura)
