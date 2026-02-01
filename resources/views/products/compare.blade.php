@@ -12,7 +12,7 @@
                     <option value="">Selecciona un producto</option>
                     @foreach($products as $product)
                         <option value="{{ $product->id }}" {{ $product1 && $product1->id == $product->id ? 'selected' : '' }}>
-                            {{ $product->name }} - €{{ number_format($product->final_price ?? $product->price, 2) }}
+                            {{ $product->name }} 
                         </option>
                     @endforeach
                 </select>
@@ -23,7 +23,7 @@
                     <option value="">Selecciona un producto</option>
                     @foreach($products as $product)
                         <option value="{{ $product->id }}" {{ $product2 && $product2->id == $product->id ? 'selected' : '' }}>
-                            {{ $product->name }} - €{{ number_format($product->final_price ?? $product->price, 2) }}
+                            {{ $product->name }} 
                         </option>
                     @endforeach
                 </select>
