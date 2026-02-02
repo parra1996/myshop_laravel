@@ -27,7 +27,7 @@
                                         <form action="{{ route('admin.wishlist.destroy', $product->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-2xl hover:scale-125 transition-transform" title="Eliminar de favoritos">
+                                            <button type="submit" class="text-2xl bg-blue-500 hover:scale-125 transition-transform text-white " title="Eliminar de favoritos">
                                                 ❌
                                             </button>
                                         </form>
@@ -39,7 +39,7 @@
                                             <form action="{{ route('cart.store') }}" method="POST" class="flex-1">
                                                 @csrf
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}"> <!-- tuve que cambiar el texto a negro para que puedan leerse -->
-                                                <button type="submit" class="w-full bg-primary-600 text-black px-4 py-2 rounded-lg hover:bg-primary-700 transition">
+                                                <button type="submit" class="w-full bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition text-white ">
                                                     🛒 Añadir al Carrito
                                                 </button>
                                             </form>

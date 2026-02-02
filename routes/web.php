@@ -36,6 +36,7 @@ Route::get('/products-on-sale', [ProductController::class, 'onSale'])->name('pro
 Route::resource('products', ProductController::class)->only(['index', 'show']);
 
 Route::get('/compare', [CompareController::class, 'index'])->name('compare');
+Route::post('/compare', [CompareController::class, 'index_post'])->name('compare');
 
 // Rutas de ofertas (solo lectura)
 Route::resource('offers', OfferController::class)->only(['index', 'show']);

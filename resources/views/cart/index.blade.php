@@ -79,7 +79,7 @@
                                     @csrf
                                     @method('PUT')
                                     <input type="number" name="quantity" value="{{ $product->quantity }}" min="1" class="w-20 text-center border-gray-300 rounded-md shadow-sm">
-                                    <button type="submit" class="ml-2 p-1 text-indigo-600 hover:text-indigo-800" title="Actualizar cantidad">🔄</button>
+                                    <button type="submit" class="ml-2 p-1 text-indigo-600 hover:text-indigo-800" title="Actualizar cantidad">🔄 </button>
                                 </form>
                             </td>
                             <td class="px-6 py-4 font-semibold text-gray-900">€{{ number_format($subtotal, 2) }}</td>

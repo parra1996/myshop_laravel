@@ -3,7 +3,7 @@
 @push('styles')
 <style>
 .hero-gradient {
-background: linear-gradient(135deg, #00d9ff 0%, #9d4edd 50%, #ff00ff 100%);
+background: linear-gradient(135deg, #00d9ff 0%, #dd4ea1 50%, #ff002b 100%);
 }
 </style>
 @endpush
