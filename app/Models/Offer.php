@@ -20,9 +20,12 @@ class Offer extends Model
         'active',
     ];
 
-    /**
-     * Get the products that have this offer.
-     */
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'active' => 'boolean',
+    ];
+
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);

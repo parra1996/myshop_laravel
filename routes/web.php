@@ -76,12 +76,15 @@ Route::middleware(['auth','log.activity'])->prefix('admin')->name('admin.')->gro
     Route::get('/products', [ProductController::class, 'adminIndex'])->name('products.index');
     Route::resource('products', ProductController::class)->except(['index', 'show']);
 
-    // NOTA: Las rutas de wishlist se añadirán en FASE 11
+    Route::get('/categories', [CategoryController::class, 'adminIndex'])->name('categories.index');
+    Route::resource('categories', CategoryController::class)->except(['index', 'show']);
+
+    Route::get('/offers', [OfferController::class, 'adminIndex'])->name('offers.index');
+    Route::resource('offers', OfferController::class)->except(['index', 'show']);
+
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
     Route::post('/wishlist/{id}', [WishlistController::class, 'store'])->name('wishlist.store');
     Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
-
 });
 
-// Las rutas de autenticación (login, register, etc.) se incluyen desde aquí
 require __DIR__.'/auth.php';
