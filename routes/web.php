@@ -9,6 +9,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CompareController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,8 @@ use App\Http\Controllers\CompareController;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 // Contact page
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Rutas de categorías (solo lectura)
 Route::resource('categories', CategoryController::class)->only(['index', 'show']);
